@@ -1,11 +1,6 @@
 package Servlets;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class BaseController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
