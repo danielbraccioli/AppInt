@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Voler
  */
-@WebServlet("/Voler")
+@WebServlet("/Volver")
 public class Volver extends BaseController {
 	private static final long serialVersionUID = 1L;
        

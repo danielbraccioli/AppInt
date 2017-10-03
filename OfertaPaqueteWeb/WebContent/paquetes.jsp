@@ -19,38 +19,18 @@
 <body>
 	<div class="container">
 		<div class="col-md-12">
-			<h1>Lista de Agencias</h1>
-			<%
-				if (request.getAttribute("error") != null) {
-			%>
-			<div class="col-md-12">
-				<div class="alert alert-danger">
-					<p><%=request.getAttribute("error")%></p>
-				</div>
-			</div>
-			<%
-				}
-			%>
-			<%
-				if (request.getAttribute("mensaje") != null) {
-			%>
-			<div class="col-md-12">
-				<div class="alert alert-info">
-					<p><%=request.getAttribute("mensaje")%></p>
-				</div>
-			</div>
-			<%
-				}
-			%>
-
+			<h1>Lista de Paquetes</h1>
+			
 			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>Id</th>
-						<th>Nombre</th>
-						<th>Direccion</th>
+						<th>Nombre Paquete</th>
+						<th>Destino</th>
+						<th>Fecha salida</th>
+						<th>Fecha regreso</th>
 						<th>Estado</th>
-						<th>E-Mail</th>
+						<th>Cupo</th>
 						<th></th>
 
 
@@ -70,8 +50,8 @@
 				<button name="accion" value="Volver" class="btn btn-lg btn-primary btn-block" type="submit"> Volver</button>
 			</form>
 			
-			<form action="/OfertaPaqueteWeb/Agencia" method="POST" class="col-md-4 col-md-push-3">
-				<button name="accion" value="Volver" class="btn btn-lg btn-primary btn-block" type="submit"> Nueva agencia</button>
+			<form action="/OfertaPaqueteWeb/Paquete" method="POST" class="col-md-4 col-md-push-3">
+				<button name="accion" value="Volver" class="btn btn-lg btn-primary btn-block" type="submit"> Nuevo paquete</button>
 			</form>
 
 		</div>
