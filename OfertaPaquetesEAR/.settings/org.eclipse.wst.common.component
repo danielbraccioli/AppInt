@@ -5,7 +5,8 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="OfertaPaquetesClient.jar" deploy-path="/" handle="module:/resource/OfertaPaquetesClient/OfertaPaquetesClient">
+        <dependent-module archiveName="OfertaPaquetesRest.war" deploy-path="/" handle="module:/resource/OfertaPaquetesRest/OfertaPaquetesRest">
+            <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
