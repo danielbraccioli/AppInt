@@ -48,12 +48,12 @@ public class AgenciaDTO implements Serializable {
 	public void setMail(String mail) {
 		Mail = mail;
 	}
-//	public List<OfertaPaquete> getOfertas() {
-//		return Ofertas;
-//	}
-//	public void setOfertas(List<OfertaPaquete> ofertas) {
-//		Ofertas = ofertas;
-//	}
-	
+ 	public List<OfertaPaqueteDTO> getOfertas() {
+ 		return Ofertas;
+ 	}
+ 	public void setOfertas(List<OfertaPaqueteDTO> ofertas) {
+ 		Ofertas = ofertas;
+ 	}
+ 	
 	
 }

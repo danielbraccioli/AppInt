@@ -1,11 +1,7 @@
 package Servlets;
 
 import java.io.IOException;
-import java.util.Hashtable;
 
-import javax.ejb.EJB;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,19 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.controlador.*;
+import com.dto.*;
+
+import BD.Controlador;
 
 /**
- * Servlet implementation class Menu
+ * Servlet implementation class Agencia
  */
-@WebServlet("/Menu")
-public class Menu extends BaseController {
+@WebServlet("/AgenciaAlta")
+public class AgenciaAlta extends BaseController {
 	private static final long serialVersionUID = 1L;
-    
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Menu() {
+    public AgenciaAlta() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,24 +32,25 @@ public class Menu extends BaseController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Dispatch("index.jsp", request, response);
-
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("accion").equals("Agencia")==true){
-				
+		AgenciaDTO agencia = new AgenciaDTO();
 		
-				
-					
-			response.sendRedirect("/OfertaPaqueteWeb/Agencia");
-			
-		}
-		else{
-			response.sendRedirect("/OfertaPaqueteWeb/Paquete");
+		agencia.setEstado("Pendiente");
+		agencia.setMail("UAgency@agencia.com.ar");
+		agencia.setNombre("UADE Agency");
+		agencia.setDireccion("Independencia 1234");
+		
+		try {
+			Controlador.getInstancia().agregarAgencia(agencia);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

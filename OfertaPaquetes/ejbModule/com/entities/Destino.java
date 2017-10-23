@@ -1,10 +1,12 @@
 package com.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="Destinos")
-public class Destino {
+public class Destino implements Serializable {
 	
 	
 	@Id

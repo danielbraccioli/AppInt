@@ -15,5 +15,9 @@
 <body>
 <h1> Alta de agencias</h1>
 
+			<form action="/OfertaPaqueteWeb/AgenciaAlta" method="POST" class="col-md-4 col-md-push-3">
+				<button name="accion" value="Alta" class="btn btn-lg btn-primary btn-block" type="submit"> Nueva agencia</button>
+			</form>
+
 </body>
 </html>

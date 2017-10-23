@@ -1,5 +1,6 @@
 package com.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Servicios")
-public class Servicio {
+public class Servicio implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -3,6 +3,7 @@
 	<name>OfertaPaqueteWeb</name>
 	<comment></comment>
 	<projects>
+		<project>OfertaPaquetes</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

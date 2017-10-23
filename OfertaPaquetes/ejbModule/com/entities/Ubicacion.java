@@ -1,9 +1,11 @@
 package com.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Ubicacion {
+public class Ubicacion implements Serializable {
 	
 	private String Calle;
 	private Integer Nro;

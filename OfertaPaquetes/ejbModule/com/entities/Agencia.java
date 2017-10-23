@@ -1,12 +1,13 @@
 package com.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="Agencias")
-public class Agencia {
+public class Agencia implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -50,12 +51,12 @@ public class Agencia {
 	public void setMail(String mail) {
 		Mail = mail;
 	}
-//	public List<OfertaPaquete> getOfertas() {
-//		return Ofertas;
-//	}
-//	public void setOfertas(List<OfertaPaquete> ofertas) {
-//		Ofertas = ofertas;
-//	}
+ 	public List<OfertaPaquete> getOfertas() {
+ 		return Ofertas;
+ 	}
+ 	public void setOfertas(List<OfertaPaquete> ofertas) {
+ 		Ofertas = ofertas;
+ 	}
 	
 	
 }
