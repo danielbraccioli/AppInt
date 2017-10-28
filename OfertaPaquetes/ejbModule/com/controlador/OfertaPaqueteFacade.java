@@ -20,6 +20,7 @@ import com.entities.MedioDePago;
 import com.entities.OfertaPaquete;
 import com.entities.Servicio;
 import com.entities.Ubicacion;
+import com.mensajeria.OfertasProductor;
 import com.session.beans.*;
 
 /**
@@ -32,6 +33,9 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 	AdmAgenciasRemote admAgencia;
 	@EJB
 	AdmOfertasRemote admOfertas;
+	
+	@EJB
+	OfertasProductor ofertaProductor;
 
 	@Override
 	public void altaAgencia(AgenciaDTO agencia) {
@@ -44,7 +48,7 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		agenciaN.setNombre(agencia.getNombre());
 		
 		admAgencia.altaAgencia(agenciaN);
-		
+		ofertaProductor.sendMessage("Estoy enviando algo");
 		
 		
 	}
@@ -120,6 +124,7 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		ofertaN.setServicios(serviciosN);
 		
 		admOfertas.altaPaquete(ofertaN);
+		ofertaProductor.sendMessage("Prueba");
 		
 	}
 
