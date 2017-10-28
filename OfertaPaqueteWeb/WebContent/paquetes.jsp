@@ -50,8 +50,8 @@
 				<button name="accion" value="Volver" class="btn btn-lg btn-primary btn-block" type="submit"> Volver</button>
 			</form>
 			
-			<form action="/OfertaPaqueteWeb/Paquete" method="POST" class="col-md-4 col-md-push-3">
-				<button name="accion" value="Volver" class="btn btn-lg btn-primary btn-block" type="submit"> Nuevo paquete</button>
+			<form action="/OfertaPaqueteWeb/altaPaquete" method="POST" class="col-md-4 col-md-push-3">
+				<button name="accion" class="btn btn-lg btn-primary btn-block" type="submit"> Nuevo paquete</button>
 			</form>
 
 		</div>

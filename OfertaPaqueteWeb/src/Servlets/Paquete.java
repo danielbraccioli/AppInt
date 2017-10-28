@@ -1,11 +1,19 @@
 package Servlets;
 
 import java.io.IOException;
+import java.util.List;
+
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.dto.MedioDePagoDTO;
+import com.dto.ServicioDTO;
+
+import BD.Controlador;
 
 /**
  * Servlet implementation class Paquete
@@ -26,7 +34,20 @@ public class Paquete extends BaseController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Dispatch("paquetes.jsp",request,response);
+		
+	//	try {
+			
+//			List<ServicioDTO> servicios = (List<ServicioDTO>) Controlador.getInstancia().listarServicios();
+//			request.setAttribute("servicios", servicios);
+//			List<MedioDePagoDTO> mediosdepago = (List<MedioDePagoDTO>) Controlador.getInstancia().listarMediosDePago();
+	//		request.setAttribute("mediosdepago", mediosdepago);
+			
+			Dispatch("paquetes.jsp", request, response);
+			
+//		} catch (NamingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	/**

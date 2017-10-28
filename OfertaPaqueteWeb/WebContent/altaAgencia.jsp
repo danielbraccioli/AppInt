@@ -4,20 +4,61 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Alta Agencias</title>
+<meta charset="UTF-8">
+<title>Alta de Agencia</title>
+
 <!-- Bootstrap core CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="signin.css" rel="stylesheet">
-
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 </head>
 <body>
-<h1> Alta de agencias</h1>
+	<div class="container">
+		<h1>Alta de Agencia</h1>
+		<br />
+		<br />
+		<form action="/OfertaPaqueteWeb/AltaAgencia" method="POST"
+				class="col-sm-4">
 
-			<form action="/OfertaPaqueteWeb/AgenciaAlta" method="POST" class="col-md-4 col-md-push-3">
-				<button name="accion" value="Alta" class="btn btn-lg btn-primary btn-block" type="submit"> Nueva agencia</button>
+			<!-- NOMBRE -->
+			<div class="row form-group">
+				<div class="col-sm-12  form-group">
+					<label for="txtNombre">Nombre:</label> 
+					<input type="text" name="txtNombre" c 	lass="form-control input-sm" id="txtNombre" />
+				</div>
+			</div>
+			
+			<!-- DIRECCION -->
+			<div class="row form-group">
+				<div class="col-sm-12  form-group">
+					<label for="txtDireccion">Direccion:</label> 
+					<input type="text" name="txtDireccion"	class="form-control input-sm" id="txtDireccion" />
+				</div>
+			</div>
+
+			<!-- EMAIL -->
+			<div class="row form-group">
+				<div class="col-sm-6  form-group">
+					<label for="txtemail">Email:</label> 
+					<input type="text" name="txtemail" class="form-control input-sm" id="txtMail"  />
+				</div>
+			</div>
+			
+			<button name="accion" class="btn btn-lg btn-primary" type="submit">Guardar</button>
+		<br />
+		<br />
+		</form>
+		<!-- BOTONES -->
+		<div class="row form-group">
+
+			
+			
+			
+			
+			<form action="/OfertaPaqueteWeb/Volver2" method="POST"
+				class="col-sm-4">
+				<button name="accion" class="btn btn-lg btn-primary" type="submit">Cancelar</button>
 			</form>
-
+		</div>
+	</div>
 </body>
 </html>

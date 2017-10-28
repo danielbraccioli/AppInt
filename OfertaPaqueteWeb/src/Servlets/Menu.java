@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.controlador.*;
+
 
 /**
  * Servlet implementation class Menu
@@ -43,10 +43,7 @@ public class Menu extends BaseController {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("accion").equals("Agencia")==true){
-				
-		
-				
-					
+							
 			response.sendRedirect("/OfertaPaqueteWeb/Agencia");
 			
 		}
