@@ -2,8 +2,6 @@ package com.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
-
 
 public class UbicacionDTO implements Serializable {
 	

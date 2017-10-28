@@ -3,8 +3,6 @@ package com.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.*;
-
 public class AgenciaDTO implements Serializable {
 	
 	/**

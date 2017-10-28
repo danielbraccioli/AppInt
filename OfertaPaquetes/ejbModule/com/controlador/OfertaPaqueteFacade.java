@@ -3,10 +3,7 @@ package com.controlador;
 import java.util.ArrayList;
 
 import javax.ejb.EJB;
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import com.dto.AgenciaDTO;
 import com.dto.FotoDTO;
@@ -20,8 +17,10 @@ import com.entities.MedioDePago;
 import com.entities.OfertaPaquete;
 import com.entities.Servicio;
 import com.entities.Ubicacion;
+import com.google.gson.Gson;
 import com.mensajeria.OfertasProductor;
-import com.session.beans.*;
+import com.session.beans.AdmAgenciasRemote;
+import com.session.beans.AdmOfertasRemote;
 
 /**
  * Session Bean implementation class Controlador
@@ -48,7 +47,9 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		agenciaN.setNombre(agencia.getNombre());
 		
 		admAgencia.altaAgencia(agenciaN);
-		ofertaProductor.sendMessage("Estoy enviando algo");
+		
+		Gson gson = new Gson();
+		ofertaProductor.sendMessage(gson.toJson(agencia));
 		
 		
 	}

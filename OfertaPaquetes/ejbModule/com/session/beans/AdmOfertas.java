@@ -9,14 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.dto.AgenciaDTO;
 import com.dto.DestinoDTO;
 import com.dto.FotoDTO;
 import com.dto.MedioDePagoDTO;
 import com.dto.OfertaPaqueteDTO;
 import com.dto.ServicioDTO;
 import com.dto.UbicacionDTO;
-import com.entities.Agencia;
 import com.entities.Foto;
 import com.entities.MedioDePago;
 import com.entities.OfertaPaquete;

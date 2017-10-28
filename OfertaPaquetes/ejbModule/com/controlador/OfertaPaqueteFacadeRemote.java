@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import javax.ejb.Remote;
 
-import com.dto.*;
+import com.dto.AgenciaDTO;
+import com.dto.OfertaPaqueteDTO;
 
 @Remote
 public interface OfertaPaqueteFacadeRemote {

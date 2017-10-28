@@ -26,7 +26,7 @@ public class Controlador {
 	public Controlador() throws NamingException {
 		InitialContext initialContext = new InitialContext();
 		ofertaFacade = (OfertaPaqueteFacadeRemote) initialContext
-				.lookup("global/OfertaPaquetesEAR/OfertaPaquetes/OfertaPaqueteFacade!com.controlador.OfertaPaqueteFacadeRemote");
+				.lookup("java:global/OfertaPaqueteWeb/OfertaPaqueteFacade!com.controlador.OfertaPaqueteFacadeRemote");
 	}
 	
 	

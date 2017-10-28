@@ -9,9 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.dto.AgenciaDTO;
 import com.entities.Agencia;
-
-import com.dto.*;
 
 /**
  * Session Bean implementation class AdmAgencias

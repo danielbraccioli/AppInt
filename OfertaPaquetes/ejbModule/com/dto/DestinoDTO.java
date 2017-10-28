@@ -2,8 +2,6 @@ package com.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
-
 
 public class DestinoDTO implements Serializable {
 	
