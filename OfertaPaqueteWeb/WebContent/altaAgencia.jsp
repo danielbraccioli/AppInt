@@ -5,25 +5,61 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="UTF-8">
-<title>Alta de Agencia</title>
+<title>Oferta Paquetes</title>
 
 <!-- Bootstrap core CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 </head>
+<script type="text/javascript">
+
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById("formulario1").addEventListener('submit', validar, false);
+    }
+
+    function validar(evt) {
+        var nombre = document.getElementById("txtNombre").value;
+        var direccion = document.getElementById("txtDireccion").value;
+        var email = document.getElementById("txtemail").value;
+        if (nombre.lenght.value < 1) {
+            alert('Debe cargar un nombre');
+        }
+        else{
+       		 if (direccion.lenght.value < 1) {
+         		   alert('Debe cargar una direccion');
+     	     }
+     	     else{
+     	          if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)){
+  						alert("La dirección de email " + email + " es correcta.");
+  		 		  } 
+  		  		  else {
+   	 		  			alert("La dirección de email es incorrecta.");
+ 				 }
+     	     
+     	     }
+        
+        }
+
+        
+    }
+
+</script>
+
+
 <body>
 	<div class="container">
 		<h1>Alta de Agencia</h1>
 		<br />
 		<br />
-		<form action="/OfertaPaqueteWeb/AltaAgencia" method="POST"
-				class="col-sm-4">
+		<form action="/OfertaPaqueteWeb/AltaAgencia" method="POST" id="formulario1"	class="col-sm-4">
 
 			<!-- NOMBRE -->
 			<div class="row form-group">
 				<div class="col-sm-12  form-group">
 					<label for="txtNombre">Nombre:</label> 
-					<input type="text" name="txtNombre" c 	lass="form-control input-sm" id="txtNombre" />
+					<input type="text" name="txtNombre" class="form-control input-sm" id="txtNombre" />
 				</div>
 			</div>
 			
@@ -43,22 +79,13 @@
 				</div>
 			</div>
 			
-			<button name="accion" class="btn btn-lg btn-primary" type="submit">Guardar</button>
+			<button name="accion" value="guardar" class="btn btn-lg btn-primary" type="submit">Guardar</button>
+			<button name="accion" value="cancelar" class="btn btn-lg btn-primary" type="submit">Cancelar</button>
+
 		<br />
 		<br />
 		</form>
-		<!-- BOTONES -->
-		<div class="row form-group">
-
-			
-			
-			
-			
-			<form action="/OfertaPaqueteWeb/Volver2" method="POST"
-				class="col-sm-4">
-				<button name="accion" class="btn btn-lg btn-primary" type="submit">Cancelar</button>
-			</form>
-		</div>
+		<br>
 	</div>
 </body>
 </html>

@@ -1,5 +1,8 @@
-<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page language="java" contentType="text/html" pageEncoding="UTF-8"
+	import="com.dto.*,java.util.*"%>
+<% 
+List<AgenciaDTO> agencias = (List<AgenciaDTO>) request.getAttribute("agencias");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Signin Template for Bootstrap</title>
+<title>Oferta Paquetes</title>
 
 <!-- Bootstrap core CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +60,20 @@
 					</tr>
 				</thead>
 				<tbody>
-				
+					<%
+						for (AgenciaDTO a : agencias) {
+					%>
+					<tr>
+						<td><%= a.getId() %></td>
+						<td><%= a.getNombre() %></td>
+						<td><%= a.getDireccion() %></td>
+						<td><%=a.getEstado() %></td>
+						<td><%=a.getMail() %></td>
+						
+					</tr>
+					<%
+						}
+					%>
 						
 					
 				</tbody>

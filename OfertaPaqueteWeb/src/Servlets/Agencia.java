@@ -1,11 +1,18 @@
 package Servlets;
 
 import java.io.IOException;
+import java.util.List;
+
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.dto.AgenciaDTO;
+
+import BD.Controlador;
 
 /**
  * Servlet implementation class Agencia
@@ -26,7 +33,16 @@ public class Agencia extends BaseController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Dispatch("agencias.jsp", request, response);
+		List<AgenciaDTO> agencias;
+		try {
+			agencias = Controlador.getInstancia().recuperarAgencias();
+			request.setAttribute("agencias", agencias);
+			Dispatch("agencias.jsp", request, response);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**
