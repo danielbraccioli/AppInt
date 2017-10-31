@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -18,6 +20,10 @@ import javax.persistence.Table;
 @Table(name="OfertaPaquete")
 public class OfertaPaquete implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7669055578404163834L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer IdPaquete;
@@ -31,18 +37,28 @@ public class OfertaPaquete implements Serializable {
 	private Float PrecioXPersona;
 	private String PoliticaCancelacion;
 	
- 	@OneToMany
- 	@JoinColumn(name="IdFoto")
- 	private List<Foto> Fotos;
+ 	private String Foto;
 	
 	private String Descripcion;
 	
-	@OneToMany
-	@JoinColumn(name="IdServicio")
+	@ManyToMany(
+			cascade={CascadeType.PERSIST, CascadeType.MERGE}
+			)
+			@JoinTable(
+			name="OfertaServicio",
+			joinColumns=@JoinColumn(name="numOferta"),
+			inverseJoinColumns=@JoinColumn(name="numServicio")
+			)
 	private List<Servicio> Servicios;
 
-	@OneToMany
-	@JoinColumn(name="IdMP")
+	@ManyToMany(
+			cascade={CascadeType.PERSIST, CascadeType.MERGE}
+			)
+			@JoinTable(
+			name="OfertaMedios",
+			joinColumns=@JoinColumn(name="numOferta"),
+			inverseJoinColumns=@JoinColumn(name="numMedio")
+			)
 	private List<MedioDePago> MediosDePagos;
 	
 	private String Estado;
@@ -91,12 +107,7 @@ public class OfertaPaquete implements Serializable {
 	public void setPoliticaCancelacion(String politicaCancelacion) {
 		PoliticaCancelacion = politicaCancelacion;
 	}
- 	public List<Foto> getFotos() {
- 		return Fotos;
- 	}
- 	public void setFotos(List<Foto> fotos) {
- 		Fotos = fotos;
- 	}
+ 
 	public String getDescripcion() {
 		return Descripcion;
 	}
@@ -132,6 +143,12 @@ public class OfertaPaquete implements Serializable {
 	}
 	public void setCantidadPersonas(Integer cantidadPersonas) {
 		CantidadPersonas = cantidadPersonas;
+	}
+	public String getFoto() {
+		return Foto;
+	}
+	public void setFoto(String foto) {
+		Foto = foto;
 	}
 	
 	

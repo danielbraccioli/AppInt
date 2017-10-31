@@ -12,10 +12,19 @@ import javax.persistence.Table;
 @Table(name="Servicios")
 public class Servicio implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5904326681859091033L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer IdServicio;
 	private String Descripcion;
+	
+	
+	
+	
+	
 	public Integer getIdServicio() {
 		return IdServicio;
 	}

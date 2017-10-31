@@ -15,4 +15,5 @@ public interface OfertaPaqueteFacadeRemote {
 	public void altaPaquete(OfertaPaqueteDTO oferta);
 	public ArrayList<OfertaPaqueteDTO> recuperarPaquetes();
 
+
 }

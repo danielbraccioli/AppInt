@@ -15,6 +15,14 @@ import javax.persistence.Table;
 @Table(name="Agencias")
 public class Agencia implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1884450858434540761L;
+	/**
+	 * 
+	 */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer Id;

@@ -7,6 +7,10 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Ubicacion implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3188318212729404822L;
 	private String Calle;
 	private Integer Nro;
 	private Float Logitud;

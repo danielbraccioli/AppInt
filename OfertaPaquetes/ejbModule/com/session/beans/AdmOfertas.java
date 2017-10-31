@@ -10,15 +10,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.dto.DestinoDTO;
-import com.dto.FotoDTO;
-import com.dto.MedioDePagoDTO;
-import com.dto.OfertaPaqueteDTO;
-import com.dto.ServicioDTO;
-import com.dto.UbicacionDTO;
-import com.entities.Foto;
-import com.entities.MedioDePago;
-import com.entities.OfertaPaquete;
-import com.entities.Servicio;
+
+import com.dto.*;
+
+
+import com.entities.*;
+
 
 /**
  * Session Bean implementation class AdmOfertas
@@ -60,7 +57,6 @@ public class AdmOfertas implements AdmOfertasRemote {
 				ofertaD.setDescripcion(o.getDescripcion());
 				
 				DestinoDTO destinoD = new DestinoDTO();
-				destinoD.setIdDestino(o.getDestino().getIdDestino());
 				destinoD.setNombre(o.getDestino().getNombre());
 				
 				UbicacionDTO ubicacionD = new UbicacionDTO();
@@ -77,21 +73,14 @@ public class AdmOfertas implements AdmOfertasRemote {
 				ofertaD.setFechaRegreso(o.getFechaRegreso());
 				ofertaD.setFechaSalida(o.getFechaSalida());
 				
-				ArrayList<FotoDTO> fotosD = new ArrayList<FotoDTO>();
-				for (Foto f: o.getFotos()){
-					FotoDTO fotoD = new FotoDTO();
-					fotoD.setIdFoto(f.getIdFoto());
-					fotosD.add(fotoD);
-				}
-				ofertaD.setFotos(fotosD);
+
+				ofertaD.setFoto(o.getFoto());
 				
-				ofertaD.setIdPaquete(o.getIdPaquete());
 				
 				
 				ArrayList<MedioDePagoDTO> mediosD = new ArrayList<MedioDePagoDTO>();
 				for(MedioDePago m: o.getMediosDePagos()){
 					MedioDePagoDTO medioD = new MedioDePagoDTO();
-					medioD.setIdMP(m.getIdMP());
 					medioD.setNombre(m.getNombre());
 					mediosD.add(medioD);
 					
@@ -108,7 +97,6 @@ public class AdmOfertas implements AdmOfertasRemote {
 				for(Servicio s: o.getServicios()){
 					ServicioDTO servicioD = new ServicioDTO();
 					servicioD.setDescripcion(s.getDescripcion());
-					servicioD.setIdServicio(s.getIdServicio());
 					serviciosD.add(servicioD);
 					
 					
@@ -125,6 +113,8 @@ public class AdmOfertas implements AdmOfertasRemote {
 		}
 		return null;
 	}
+
+
     
 
 }

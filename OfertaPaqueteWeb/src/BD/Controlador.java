@@ -38,6 +38,7 @@ public class Controlador {
 		ofertaFacade.altaPaquete(oferta);
 	}
 	
+	
 	public List<AgenciaDTO> recuperarAgencias() {
 		return ofertaFacade.recuperarAgencias();
 	}

@@ -12,6 +12,10 @@ import javax.persistence.Table;
 @Table(name="MediosPagos")
 public class MedioDePago implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8742023307663445124L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer IdMP;

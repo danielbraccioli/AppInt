@@ -18,7 +18,7 @@ public class OfertaPaqueteDTO implements Serializable {
 	private Date FechaRegreso;
 	private Float PrecioXPersona;
 	private String PoliticaCancelacion;
-  	private List<FotoDTO> Fotos;
+  	private String Foto;
 	private String Descripcion;
 	private List<ServicioDTO> Servicios;
 	private List<MedioDePagoDTO> MediosDePagos;
@@ -68,12 +68,7 @@ public class OfertaPaqueteDTO implements Serializable {
 	public void setPoliticaCancelacion(String politicaCancelacion) {
 		PoliticaCancelacion = politicaCancelacion;
 	}
- 	public List<FotoDTO> getFotos() {
- 		return Fotos;
- 	}
- 	public void setFotos(List<FotoDTO> fotos) {
- 		Fotos = fotos;
- 	}
+ 
 	public String getDescripcion() {
 		return Descripcion;
 	}
@@ -110,6 +105,13 @@ public class OfertaPaqueteDTO implements Serializable {
 	public void setCantidadPersonas(Integer cantidadPersonas) {
 		CantidadPersonas = cantidadPersonas;
 	}
+	public String getFoto() {
+		return Foto;
+	}
+	public void setFoto(String foto) {
+		Foto = foto;
+	}
+	
 	
 	
 	

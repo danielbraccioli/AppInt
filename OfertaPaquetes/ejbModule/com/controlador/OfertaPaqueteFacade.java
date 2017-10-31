@@ -6,13 +6,13 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import com.dto.AgenciaDTO;
-import com.dto.FotoDTO;
+
 import com.dto.MedioDePagoDTO;
 import com.dto.OfertaPaqueteDTO;
 import com.dto.ServicioDTO;
 import com.entities.Agencia;
 import com.entities.Destino;
-import com.entities.Foto;
+
 import com.entities.MedioDePago;
 import com.entities.OfertaPaquete;
 import com.entities.Servicio;
@@ -87,15 +87,8 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		ofertaN.setFechaRegreso(oferta.getFechaRegreso());
 		ofertaN.setFechaSalida(oferta.getFechaSalida());
 		
-		ArrayList<Foto> fotosN = new ArrayList<Foto>();
-		
-		for(FotoDTO f: oferta.getFotos()){
-			Foto fn = new Foto();
-			fn.setIdFoto(f.getIdFoto());
-			fotosN.add(fn);
-		}
-		
-		ofertaN.setFotos(fotosN);
+	
+		ofertaN.setFoto(oferta.getFoto());
 		
 		ofertaN.setIdPaquete(oferta.getIdPaquete());
 	
@@ -125,7 +118,7 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		ofertaN.setServicios(serviciosN);
 		
 		admOfertas.altaPaquete(ofertaN);
-		ofertaProductor.sendMessage("Prueba");
+	//	ofertaProductor.sendMessage("Prueba");
 		
 	}
 
@@ -134,6 +127,8 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 	
 		return admOfertas.recuperarPaquetes();
 	}
+	
+
 
 	
    
