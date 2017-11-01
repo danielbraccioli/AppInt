@@ -54,7 +54,7 @@ public class Paquete extends BaseController {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Dispatch("altapaquete.jsp", request, response);
+		response.sendRedirect("/OfertaPaqueteWeb/AltaPaquete");
 	}
 
 }

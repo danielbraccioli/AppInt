@@ -1,12 +1,13 @@
 package com.controlador;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import com.dto.AgenciaDTO;
-
+import com.dto.DestinoDTO;
 import com.dto.MedioDePagoDTO;
 import com.dto.OfertaPaqueteDTO;
 import com.dto.ServicioDTO;
@@ -49,7 +50,7 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		admAgencia.altaAgencia(agenciaN);
 		
 		Gson gson = new Gson();
-		ofertaProductor.sendMessage(gson.toJson(agencia));
+	//	ofertaProductor.sendMessage(gson.toJson(agencia));
 		
 		
 	}
@@ -69,18 +70,17 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		ofertaN.setCupo(oferta.getCupo());
 		ofertaN.setDescripcion(oferta.getDescripcion());
 		
+		
+	//  buscar el destino
+		
 		Destino destinoN = new Destino();
 		destinoN.setIdDestino(oferta.getDestino().getIdDestino());
 		destinoN.setNombre(oferta.getDestino().getNombre());
 		Ubicacion ubicacionN = new Ubicacion();
-		ubicacionN.setCalle(oferta.getDestino().getUbicacion().getCalle());
 		ubicacionN.setLatitud(oferta.getDestino().getUbicacion().getLatitud());
 		ubicacionN.setLogitud(oferta.getDestino().getUbicacion().getLogitud());
-		ubicacionN.setNro(oferta.getDestino().getUbicacion().getNro());
 		
 		destinoN.setUbicacion(ubicacionN);
-		
-		
 		ofertaN.setDestino(destinoN);
 		
 		ofertaN.setEstado(oferta.getEstado());
@@ -92,6 +92,8 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		
 		ofertaN.setIdPaquete(oferta.getIdPaquete());
 	
+		
+	//  buscar medios de pago
 		ArrayList<MedioDePago> medioPagoN = new ArrayList<MedioDePago>();
 		for(MedioDePagoDTO m: oferta.getMediosDePagos()){
 			MedioDePago mN = new MedioDePago();
@@ -106,6 +108,7 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		ofertaN.setPoliticaCancelacion(oferta.getPoliticaCancelacion());
 		ofertaN.setPrecioXPersona(oferta.getPrecioXPersona());
 		
+	//  buscar servicios
 		ArrayList<Servicio> serviciosN = new ArrayList<Servicio>();
 		for(ServicioDTO s: oferta.getServicios()){
 			Servicio sN = new Servicio();
@@ -124,14 +127,54 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 
 	@Override
 	public ArrayList<OfertaPaqueteDTO> recuperarPaquetes() {
-	
 		return admOfertas.recuperarPaquetes();
 	}
-	
 
+	@Override
+	public void altaMedios(List<MedioDePagoDTO> medios) {
+		for (MedioDePagoDTO m : medios){
+			MedioDePago medioN = new MedioDePago();
+			medioN.setNombre(m.getNombre());
+			admOfertas.altaMedios(medioN);
+		}
+	}
 
-	
-   
+	@Override
+	public void altaServicios(List<ServicioDTO> servicios) {
+		for (ServicioDTO s : servicios){
+			Servicio servicioN = new Servicio();
+			servicioN.setDescripcion(s.getDescripcion());
+			admOfertas.altaServicio(servicioN);
+		}
+	}
 
-    
+	@Override
+	public void altaDestinos(List<DestinoDTO> destinos) {
+		for (DestinoDTO d : destinos){
+			Destino destinoN = new Destino();
+			destinoN.setNombre(d.getNombre());
+			Ubicacion ubicacionN = new Ubicacion();
+			ubicacionN.setLatitud(d.getUbicacion().getLatitud());
+			ubicacionN.setLogitud(d.getUbicacion().getLogitud());
+			destinoN.setUbicacion(ubicacionN);
+			admOfertas.altaDestino(destinoN);
+		}
+		
+	}
+
+	@Override
+	public List<MedioDePagoDTO> recuperarMedios() {
+		return admOfertas.recuperarMedios();
+	}
+
+	@Override
+	public List<ServicioDTO> recuperarServicios() {
+		return admOfertas.recuperarServicios();
+	}
+
+	@Override
+	public List<DestinoDTO> recuperarDestinos() {
+		return admOfertas.recuperarDestinos();
+	}
+     
 }

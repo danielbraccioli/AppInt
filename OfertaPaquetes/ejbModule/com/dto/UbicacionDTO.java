@@ -9,35 +9,21 @@ public class UbicacionDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String Calle;
-	private Integer Nro;
-	private Float Logitud;
-	private Float Latitud;
+	private Double Logitud;
+	private Double Latitud;
 	
 	//ver si necesitamos mas datos de la ubicacion o con esto es suficiente
 
-	public String getCalle() {
-		return Calle;
-	}
-	public void setCalle(String calle) {
-		Calle = calle;
-	}
-	public Integer getNro() {
-		return Nro;
-	}
-	public void setNro(Integer nro) {
-		Nro = nro;
-	}
-	public Float getLogitud() {
+	public Double getLogitud() {
 		return Logitud;
 	}
-	public void setLogitud(Float logitud) {
+	public void setLogitud(Double logitud) {
 		Logitud = logitud;
 	}
-	public Float getLatitud() {
+	public Double getLatitud() {
 		return Latitud;
 	}
-	public void setLatitud(Float latitud) {
+	public void setLatitud(Double latitud) {
 		Latitud = latitud;
 	}
 	

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -64,6 +65,11 @@ public class OfertaPaquete implements Serializable {
 	private String Estado;
 	private Integer Cupo;
 	private Integer CantidadPersonas;
+	
+	@ManyToOne
+	@JoinColumn(name="agencia")
+	private Agencia agencia;
+	
 	
 	public Integer getIdPaquete() {
 		return IdPaquete;
@@ -149,6 +155,12 @@ public class OfertaPaquete implements Serializable {
 	}
 	public void setFoto(String foto) {
 		Foto = foto;
+	}
+	public Agencia getAgencia() {
+		return agencia;
+	}
+	public void setAgencia(Agencia agencia) {
+		this.agencia = agencia;
 	}
 	
 	

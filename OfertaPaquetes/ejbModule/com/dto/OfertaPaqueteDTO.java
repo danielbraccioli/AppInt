@@ -25,6 +25,7 @@ public class OfertaPaqueteDTO implements Serializable {
 	private String Estado;
 	private Integer Cupo;
 	private Integer CantidadPersonas;
+	private AgenciaDTO agencia;
 	
 	public Integer getIdPaquete() {
 		return IdPaquete;
@@ -111,6 +112,13 @@ public class OfertaPaqueteDTO implements Serializable {
 	public void setFoto(String foto) {
 		Foto = foto;
 	}
+	public AgenciaDTO getAgencia() {
+		return agencia;
+	}
+	public void setAgencia(AgenciaDTO agencia) {
+		this.agencia = agencia;
+	}
+	
 	
 	
 	

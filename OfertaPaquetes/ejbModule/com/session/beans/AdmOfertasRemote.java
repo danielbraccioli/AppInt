@@ -1,6 +1,7 @@
 package com.session.beans;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Remote;
 
@@ -11,8 +12,14 @@ import com.entities.*;
 @Remote
 public interface AdmOfertasRemote {
 	
-	 public void altaPaquete(OfertaPaquete oferta);
-	 public ArrayList<OfertaPaqueteDTO> recuperarPaquetes();
+	public void altaPaquete(OfertaPaquete oferta);
+	public ArrayList<OfertaPaqueteDTO> recuperarPaquetes();
+	public void altaMedios(MedioDePago mediosN);
+	public void altaServicio(Servicio servicioN);
+	public void altaDestino(Destino destinoN);
+	public List<MedioDePagoDTO> recuperarMedios();
+	public List<ServicioDTO> recuperarServicios();
+	public List<DestinoDTO> recuperarDestinos();
 
 
 }

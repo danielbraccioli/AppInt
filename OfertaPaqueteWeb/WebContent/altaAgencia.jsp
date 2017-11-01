@@ -23,19 +23,23 @@
         var nombre = document.getElementById("txtNombre").value;
         var direccion = document.getElementById("txtDireccion").value;
         var email = document.getElementById("txtemail").value;
-        if (nombre.lenght.value < 1) {
+        
+        
+        
+        if (nombre=='') {
             alert('Debe cargar un nombre');
+            evt.preventDefault();
         }
         else{
-       		 if (direccion.lenght.value < 1) {
+       		 if (direccion=='') {
          		   alert('Debe cargar una direccion');
+         		  evt.preventDefault();
      	     }
      	     else{
-     	          if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)){
-  						alert("La dirección de email " + email + " es correcta.");
-  		 		  } 
-  		  		  else {
-   	 		  			alert("La dirección de email es incorrecta.");
+     	    	expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+     	        if ( !expr.test(email) ){
+     	            alert("Error: La dirección de correo " + email + " es incorrecta.");
+     		       evt.preventDefault();
  				 }
      	     
      	     }
@@ -53,7 +57,7 @@
 		<h1>Alta de Agencia</h1>
 		<br />
 		<br />
-		<form action="/OfertaPaqueteWeb/AltaAgencia" method="POST" id="formulario1"	class="col-sm-4">
+		<form action="/OfertaPaqueteWeb/AltaAgencia" method="POST" name="formulario1" id="formulario1"	class="col-sm-4">
 
 			<!-- NOMBRE -->
 			<div class="row form-group">
@@ -75,7 +79,7 @@
 			<div class="row form-group">
 				<div class="col-sm-6  form-group">
 					<label for="txtemail">Email:</label> 
-					<input type="text" name="txtemail" class="form-control input-sm" id="txtMail"  />
+					<input type="text" name="txtemail" class="form-control input-sm" id="txtemail"  />
 				</div>
 			</div>
 			

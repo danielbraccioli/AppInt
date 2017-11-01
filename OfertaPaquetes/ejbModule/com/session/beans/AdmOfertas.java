@@ -9,8 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.dto.DestinoDTO;
-
 import com.dto.*;
 
 
@@ -60,10 +58,8 @@ public class AdmOfertas implements AdmOfertasRemote {
 				destinoD.setNombre(o.getDestino().getNombre());
 				
 				UbicacionDTO ubicacionD = new UbicacionDTO();
-				ubicacionD.setCalle(o.getDestino().getUbicacion().getCalle());
 				ubicacionD.setLatitud(o.getDestino().getUbicacion().getLatitud());
 				ubicacionD.setLogitud(o.getDestino().getUbicacion().getLatitud());
-				ubicacionD.setNro(o.getDestino().getUbicacion().getNro());
 				
 				destinoD.setUbicacion(ubicacionD);
 															
@@ -102,11 +98,122 @@ public class AdmOfertas implements AdmOfertasRemote {
 					
 				}
 				ofertaD.setServicios(serviciosD);
+				ofertaD.setIdPaquete(o.getIdPaquete());
 				
 				ofertasD.add(ofertaD);
 			}
 			
 			return ofertasD;
+		} catch (Exception e) {
+			e.printStackTrace();
+    		System.out.println("Conectando a " + e.getMessage());
+		}
+		return null;
+	}
+
+	@Override
+	public void altaMedios(MedioDePago mediosN) {
+		try{
+    		manager.persist(mediosN);
+    	}
+    	catch(Exception e){
+    		e.printStackTrace();
+    		System.out.println("Conectando a " + e.getMessage());
+    	}
+		
+	}
+
+	@Override
+	public void altaServicio(Servicio servicioN) {
+		try{
+    		manager.persist(servicioN);
+    	}
+    	catch(Exception e){
+    		e.printStackTrace();
+    		System.out.println("Conectando a " + e.getMessage());
+    	}
+		
+	}
+
+	@Override
+	public void altaDestino(Destino destinoN) {
+		try{
+    		manager.persist(destinoN);
+    	}
+    	catch(Exception e){
+    		e.printStackTrace();
+    		System.out.println("Conectando a " + e.getMessage());
+    	}
+	}
+
+	@Override
+	public List<MedioDePagoDTO> recuperarMedios() {
+		try {
+			Query q = manager.createQuery("Select a from MedioDePago a");
+			List<MedioDePago> medios = (List<MedioDePago>) q.getResultList();
+			ArrayList<MedioDePagoDTO> mediosD = new ArrayList<MedioDePagoDTO>();
+
+			for (MedioDePago m : medios) {
+				MedioDePagoDTO medioD = new MedioDePagoDTO();
+				medioD.setIdMP(m.getIdMP());
+				medioD.setNombre(m.getNombre());
+				mediosD.add(medioD);
+			}
+			
+			return mediosD;
+		} catch (Exception e) {
+			e.printStackTrace();
+    		System.out.println("Conectando a " + e.getMessage());
+		}
+		return null;
+	}
+
+	@Override
+	public List<ServicioDTO> recuperarServicios() {
+		try {
+			Query q = manager.createQuery("Select a from Servicio a");
+			List<Servicio> servicios = (List<Servicio>) q.getResultList();
+			ArrayList<ServicioDTO> serviciosD = new ArrayList<ServicioDTO>();
+
+			for (Servicio s : servicios) {
+				ServicioDTO servicioD = new ServicioDTO();
+				servicioD.setDescripcion(s.getDescripcion());
+				servicioD.setIdServicio(s.getIdServicio());
+				
+				
+				serviciosD.add(servicioD);
+			}
+			
+			return serviciosD;
+		} catch (Exception e) {
+			e.printStackTrace();
+    		System.out.println("Conectando a " + e.getMessage());
+		}
+		return null;
+	}
+
+	@Override
+	public List<DestinoDTO> recuperarDestinos() {
+		try {
+			Query q = manager.createQuery("Select a from Destino a");
+			List<Destino> destinos = (List<Destino>) q.getResultList();
+			ArrayList<DestinoDTO> destinosD = new ArrayList<DestinoDTO>();
+
+			for (Destino d : destinos) {
+				DestinoDTO destinoD = new DestinoDTO();
+				destinoD.setIdDestino(d.getIdDestino());
+				destinoD.setNombre(d.getNombre());
+				UbicacionDTO ubi = new UbicacionDTO();
+				ubi.setLatitud(d.getUbicacion().getLatitud());
+				ubi.setLogitud(d.getUbicacion().getLogitud());
+				
+				destinoD.setUbicacion(ubi);
+				
+				
+				destinosD.add(destinoD);
+			}
+			
+			return destinosD;
 		} catch (Exception e) {
 			e.printStackTrace();
     		System.out.println("Conectando a " + e.getMessage());
