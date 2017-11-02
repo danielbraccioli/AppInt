@@ -11,6 +11,7 @@ import javax.persistence.Query;
 
 import com.dto.AgenciaDTO;
 import com.entities.Agencia;
+import com.entities.MedioDePago;
 
 /**
  * Session Bean implementation class AdmAgencias
@@ -60,6 +61,17 @@ public class AdmAgencias implements AdmAgenciasRemote {
     		System.out.println("Conectando a " + e.getMessage());
 		}
 		return null;
+	}
+    
+	public Agencia recuperarAgencia(int clave) {
+		try {
+				Agencia agencia = manager.find(Agencia.class, clave);
+				return agencia;
+			} catch (Exception e) {
+				e.printStackTrace();
+	    		System.out.println("Conectando a " + e.getMessage());
+			}
+			return null;
 	}
     
 }

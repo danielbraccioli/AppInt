@@ -22,7 +22,6 @@ public class Destino implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer IdDestino;
 	private String Nombre;
-	
 	@Embedded 
  	private Ubicacion Ubicacion;
  	

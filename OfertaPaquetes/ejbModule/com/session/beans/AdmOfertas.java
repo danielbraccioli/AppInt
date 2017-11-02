@@ -15,6 +15,7 @@ import com.dto.*;
 import com.entities.*;
 
 
+
 /**
  * Session Bean implementation class AdmOfertas
  */
@@ -167,6 +168,40 @@ public class AdmOfertas implements AdmOfertasRemote {
 		}
 		return null;
 	}
+	
+	public MedioDePago recuperarMedio(int clave) {
+		try {
+				MedioDePago medio = manager.find(MedioDePago.class, clave);
+				return medio;
+			} catch (Exception e) {
+				e.printStackTrace();
+	    		System.out.println("Conectando a " + e.getMessage());
+			}
+			return null;
+	}
+	
+	public Destino recuperarDestino(int clave) {
+		try {
+				Destino destino = manager.find(Destino.class, clave);
+				return destino;
+			} catch (Exception e) {
+				e.printStackTrace();
+	    		System.out.println("Conectando a " + e.getMessage());
+			}
+			return null;
+	}
+	
+	public Servicio recuperarServicio(int clave) {
+		try {
+				Servicio servicio = manager.find(Servicio.class, clave);
+				return servicio;
+			} catch (Exception e) {
+				e.printStackTrace();
+	    		System.out.println("Conectando a " + e.getMessage());
+			}
+			return null;
+	}
+	
 
 	@Override
 	public List<ServicioDTO> recuperarServicios() {

@@ -30,7 +30,7 @@ public class OfertaPaquete implements Serializable {
 	private Integer IdPaquete;
 	private String Nombre;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="Destino",referencedColumnName="IdDestino")
 	private Destino Destino;
 	private Date FechaSalida;
@@ -43,7 +43,7 @@ public class OfertaPaquete implements Serializable {
 	private String Descripcion;
 	
 	@ManyToMany(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE}
+			cascade={CascadeType.MERGE}
 			)
 			@JoinTable(
 			name="OfertaServicio",
@@ -53,7 +53,7 @@ public class OfertaPaquete implements Serializable {
 	private List<Servicio> Servicios;
 
 	@ManyToMany(
-			cascade={CascadeType.PERSIST, CascadeType.MERGE}
+			cascade={CascadeType.MERGE}
 			)
 			@JoinTable(
 			name="OfertaMedios",

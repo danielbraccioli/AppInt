@@ -70,17 +70,7 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 		ofertaN.setCupo(oferta.getCupo());
 		ofertaN.setDescripcion(oferta.getDescripcion());
 		
-		
-	//  buscar el destino
-		
-		Destino destinoN = new Destino();
-		destinoN.setIdDestino(oferta.getDestino().getIdDestino());
-		destinoN.setNombre(oferta.getDestino().getNombre());
-		Ubicacion ubicacionN = new Ubicacion();
-		ubicacionN.setLatitud(oferta.getDestino().getUbicacion().getLatitud());
-		ubicacionN.setLogitud(oferta.getDestino().getUbicacion().getLogitud());
-		
-		destinoN.setUbicacion(ubicacionN);
+		Destino destinoN = admOfertas.recuperarDestino(oferta.getDestino().getIdDestino());
 		ofertaN.setDestino(destinoN);
 		
 		ofertaN.setEstado(oferta.getEstado());
@@ -96,14 +86,11 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 	//  buscar medios de pago
 		ArrayList<MedioDePago> medioPagoN = new ArrayList<MedioDePago>();
 		for(MedioDePagoDTO m: oferta.getMediosDePagos()){
-			MedioDePago mN = new MedioDePago();
-			mN.setIdMP(m.getIdMP());
-			mN.setNombre(m.getNombre());
+			MedioDePago mN = admOfertas.recuperarMedio(m.getIdMP());
 			medioPagoN.add(mN);
 		}
 		
 		ofertaN.setMediosDePagos(medioPagoN);
-		
 		ofertaN.setNombre(oferta.getNombre());
 		ofertaN.setPoliticaCancelacion(oferta.getPoliticaCancelacion());
 		ofertaN.setPrecioXPersona(oferta.getPrecioXPersona());
@@ -111,14 +98,17 @@ public class OfertaPaqueteFacade implements OfertaPaqueteFacadeRemote {
 	//  buscar servicios
 		ArrayList<Servicio> serviciosN = new ArrayList<Servicio>();
 		for(ServicioDTO s: oferta.getServicios()){
-			Servicio sN = new Servicio();
-			sN.setDescripcion(s.getDescripcion());
-			sN.setIdServicio(s.getIdServicio());
+			Servicio sN = admOfertas.recuperarServicio(s.getIdServicio());
 			serviciosN.add(sN);
 		}
 		
 		
 		ofertaN.setServicios(serviciosN);
+		
+		Agencia agenciaN = admAgencia.recuperarAgencia(oferta.getAgencia().getId());
+		
+		ofertaN.setAgencia(agenciaN);
+		
 		
 		admOfertas.altaPaquete(ofertaN);
 	//	ofertaProductor.sendMessage("Prueba");

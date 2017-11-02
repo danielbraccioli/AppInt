@@ -32,7 +32,7 @@ public class Agencia implements Serializable {
 	private String Mail;
 
 	@OneToMany
-	@JoinColumn(name="Ofertas")
+	@JoinColumn(name="agencia")
 	private List<OfertaPaquete> Ofertas;
 	
 	public Integer getId() {

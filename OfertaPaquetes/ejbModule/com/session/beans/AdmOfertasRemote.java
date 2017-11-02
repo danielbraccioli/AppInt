@@ -20,6 +20,10 @@ public interface AdmOfertasRemote {
 	public List<MedioDePagoDTO> recuperarMedios();
 	public List<ServicioDTO> recuperarServicios();
 	public List<DestinoDTO> recuperarDestinos();
+	public MedioDePago recuperarMedio(int clave); 
+	public Destino recuperarDestino(int clave); 
+	public Servicio recuperarServicio(int clave); 
+	
 
 
 }

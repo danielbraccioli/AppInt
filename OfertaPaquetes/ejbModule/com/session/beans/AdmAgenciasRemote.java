@@ -12,5 +12,5 @@ public interface AdmAgenciasRemote {
 	
 	public void altaAgencia(Agencia agencia);
 	public ArrayList<AgenciaDTO> recuperarAgencias();
-
+	public Agencia recuperarAgencia(int clave);
 }
